@@ -2,7 +2,7 @@ spring:
   application:
     name: cckback
   datasource:
-    url: jdbc:mysql://localhost:3306/cckprojet?createDatabaseIfNotExist=true&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC
+    url: jdbc:mysql://db_mysql1:3306/cckprojet?createDatabaseIfNotExist=true&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC
     username: root
     password:
   jackson:
