@@ -1,0 +1,145 @@
+idAlerte,typePanne,niveauGravite,valeurDeclenchement,typeCapteur,emplacement,description,solution,satisfaction
+1,CLIMATISATION,HIGH_CRITICAL,45.0,TEMPERATURE,Salle 1,Temperature critique détectée: 45.0°C,Maintenance d'urgence des climatiseurs,5
+2,CLIMATISATION,HIGH_CRITICAL,50.5,TEMPERATURE,Salle 2,Surchauffe majeure: 50.5°C,Installation de refroidisseurs supplémentaires,4
+3,CLIMATISATION,CRITIQUE,35.2,TEMPERATURE,Salle 1,Temperature élevée: 35.2°C,Ajustement du système de refroidissement,4
+4,CLIMATISATION,CRITIQUE,38.0,TEMPERATURE,Salle 2,Temperature anormale: 38.0°C,Inspection des ventilateurs,3
+5,CLIMATISATION,NORMALE,22.5,TEMPERATURE,Salle 1,Temperature stable: 22.5°C,Vérification des capteurs,3
+6,CLIMATISATION,NORMALE,25.0,TEMPERATURE,Salle 2,Temperature dans la plage normale: 25.0°C,Calibration des capteurs,4
+7,CLIMATISATION,BAS,-5.0,TEMPERATURE,Salle 1,Temperature basse: -5.0°C,Réglage du système de chauffage,4
+8,CLIMATISATION,BAS_CRITIQUE,-10.0,TEMPERATURE,Salle 2,Gel détecté: -10.0°C,Maintenance du système de chauffage,5
+9,CLIMATISATION,BAS_CRITIQUE,-15.0,TEMPERATURE,Salle 1,Temperature très basse: -15.0°C,Réparation du système de chauffage,4
+10,ENVIRONNEMENT,HIGH_CRITICAL,92.0,HUMIDITE,Salle 1,Humidité excessive: 92.0%,Installation de déshumidificateurs,5
+11,ENVIRONNEMENT,HIGH_CRITICAL,95.5,HUMIDITE,Salle 2,Humidité critique: 95.5%,Remplacement des absorbeurs d'humidité,4
+12,ENVIRONNEMENT,CRITIQUE,85.0,HUMIDITE,Salle 1,Humidité élevée: 85.0%,Maintenance des systèmes de ventilation,4
+13,ENVIRONNEMENT,CRITIQUE,88.0,HUMIDITE,Salle 2,Humidité anormale: 88.0%,Maintenance des systèmes de ventilation,3
+14,ENVIRONNEMENT,NORMALE,60.0,HUMIDITE,Salle 1,Humidité stable: 60.0%,Vérification de l'étanchéité,3
+15,ENVIRONNEMENT,NORMALE,70.0,HUMIDITE,Salle 2,Humidité dans la plage normale: 70.0%,Calibration des capteurs,4
+16,ENVIRONNEMENT,BAS,35.0,HUMIDITE,Salle 1,Humidité basse: 35.0%,Ajustement du système d'humidification,4
+17,ENVIRONNEMENT,BAS_CRITIQUE,25.0,HUMIDITE,Salle 2,Humidité très basse: 25.0%,Maintenance du système d'humidification,5
+18,ENVIRONNEMENT,BAS_CRITIQUE,20.0,HUMIDITE,Salle 1,Humidité critique basse: 20.0%,Installation d'humidificateurs,4
+19,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 1,Court-circuit détecté,Réparation du circuit électrique,5
+20,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 2,Panne électrique majeure,Remplacement du tableau électrique,4
+21,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 1,Coupure de courant,Réparation du transformateur,4
+22,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 2,Problème de mise à la terre,Réparation du circuit de terre,3
+23,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 1,Panne secteur,Réinitialisation du disjoncteur principal,4
+24,CLIMATISATION,CRITIQUE,39.0,TEMPERATURE,Salle 2,Temperature critique: 39.0°C,Maintenance des climatiseurs,5
+25,ENVIRONNEMENT,HIGH_CRITICAL,93.0,HUMIDITE,Salle 1,Humidité extrême: 93.0%,Installation de déshumidificateurs supplémentaires,4
+26,CLIMATISATION,BAS,-2.0,TEMPERATURE,Salle 1,Temperature basse détectée: -2.0°C,Réglage du système de chauffage,3
+27,ENVIRONNEMENT,BAS,38.0,HUMIDITE,Salle 2,Humidité légèrement basse: 38.0%,Ajustement des humidificateurs,4
+28,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 1,Problème de circuit,Réparation des câbles endommagés,5
+29,CLIMATISATION,HIGH_CRITICAL,60.0,TEMPERATURE,Salle 2,Surchauffe détectée: 60.0°C,Installation de systèmes de refroidissement,4
+30,ENVIRONNEMENT,CRITIQUE,87.0,HUMIDITE,Salle 1,Humidité élevée détectée: 87.0%,Maintenance des systèmes de ventilation,4
+31,CLIMATISATION,BAS,-3.0,TEMPERATURE,Salle 1,Temperature basse détectée: -3.0°C,Réglage du système de chauffage,4
+32,CLIMATISATION,BAS,-7.0,TEMPERATURE,Salle 2,Temperature basse: -7.0°C,Réglage du système de chauffage,3
+33,CLIMATISATION,NORMALE,20.0,TEMPERATURE,Salle 1,Temperature stable: 20.0°C,Calibration des capteurs,4
+34,CLIMATISATION,NORMALE,23.5,TEMPERATURE,Salle 2,Temperature dans la plage normale: 23.5°C,Calibration des capteurs,4
+35,CLIMATISATION,CRITIQUE,36.0,TEMPERATURE,Salle 1,Temperature élevée: 36.0°C,Ajustement du système de refroidissement,4
+36,CLIMATISATION,CRITIQUE,37.5,TEMPERATURE,Salle 2,Temperature anormale: 37.5°C,Ajustement du système de refroidissement,3
+37,CLIMATISATION,HIGH_CRITICAL,48.0,TEMPERATURE,Salle 1,Surchauffe détectée: 48.0°C,Maintenance d'urgence des climatiseurs,5
+38,CLIMATISATION,HIGH_CRITICAL,55.0,TEMPERATURE,Salle 2,Surchauffe majeure: 55.0°C,Maintenance d'urgence des climatiseurs,4
+39,ENVIRONNEMENT,CRITIQUE,86.0,HUMIDITE,Salle 1,Humidité élevée détectée: 86.0%,Maintenance des systèmes de ventilation,4
+40,ENVIRONNEMENT,CRITIQUE,89.0,HUMIDITE,Salle 2,Humidité anormale: 89.0%,Maintenance des systèmes de ventilation,3
+41,ENVIRONNEMENT,HIGH_CRITICAL,94.0,HUMIDITE,Salle 1,Humidité excessive: 94.0%,Installation de déshumidificateurs,5
+42,ENVIRONNEMENT,HIGH_CRITICAL,96.0,HUMIDITE,Salle 2,Humidité critique: 96.0%,Installation de déshumidificateurs,4
+43,ENVIRONNEMENT,NORMALE,65.0,HUMIDITE,Salle 1,Humidité stable: 65.0%,Calibration des capteurs,3
+44,ENVIRONNEMENT,NORMALE,75.0,HUMIDITE,Salle 2,Humidité dans la plage normale: 75.0%,Calibration des capteurs,4
+45,ENVIRONNEMENT,BAS,32.0,HUMIDITE,Salle 1,Humidité basse: 32.0%,Ajustement du système d'humidification,4
+46,ENVIRONNEMENT,BAS,34.0,HUMIDITE,Salle 2,Humidité légèrement basse: 34.0%,Ajustement du système d'humidification,3
+47,ENVIRONNEMENT,BAS_CRITIQUE,22.0,HUMIDITE,Salle 1,Humidité critique basse: 22.0%,Installation d'humidificateurs,4
+48,ENVIRONNEMENT,BAS_CRITIQUE,28.0,HUMIDITE,Salle 2,Humidité très basse: 28.0%,Installation d'humidificateurs,5
+49,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 1,Court-circuit détecté,Réparation du circuit électrique,5
+50,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 2,Panne électrique majeure,Réparation du circuit électrique,4
+51,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 1,Coupure de courant,Réparation du transformateur,4
+52,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 2,Problème de mise à la terre,Réparation du circuit de terre,3
+53,CLIMATISATION,BAS_CRITIQUE,-12.0,TEMPERATURE,Salle 1,Gel détecté: -12.0°C,Maintenance du système de chauffage,5
+54,CLIMATISATION,BAS_CRITIQUE,-8.0,TEMPERATURE,Salle 2,Temperature très basse: -8.0°C,Maintenance du système de chauffage,4
+55,CLIMATISATION,CRITIQUE,34.0,TEMPERATURE,Salle 1,Temperature élevée: 34.0°C,Ajustement du système de refroidissement,4
+56,CLIMATISATION,CRITIQUE,39.5,TEMPERATURE,Salle 2,Temperature critique: 39.5°C,Ajustement du système de refroidissement,5
+57,ENVIRONNEMENT,CRITIQUE,84.0,HUMIDITE,Salle 1,Humidité élevée: 84.0%,Maintenance des systèmes de ventilation,4
+58,ENVIRONNEMENT,CRITIQUE,86.5,HUMIDITE,Salle 2,Humidité anormale: 86.5%,Maintenance des systèmes de ventilation,3
+59,ENVIRONNEMENT,HIGH_CRITICAL,91.0,HUMIDITE,Salle 1,Humidité excessive: 91.0%,Installation de déshumidificateurs,5
+60,ENVIRONNEMENT,HIGH_CRITICAL,97.0,HUMIDITE,Salle 2,Humidité critique: 97.0%,Installation de déshumidificateurs,4
+61,CLIMATISATION,NORMALE,21.0,TEMPERATURE,Salle 1,Temperature stable: 21.0°C,Calibration des capteurs,3
+62,CLIMATISATION,NORMALE,26.0,TEMPERATURE,Salle 2,Temperature dans la plage normale: 26.0°C,Calibration des capteurs,4
+63,CLIMATISATION,HIGH_CRITICAL,52.0,TEMPERATURE,Salle 1,Surchauffe détectée: 52.0°C,Maintenance d'urgence des climatiseurs,5
+64,CLIMATISATION,HIGH_CRITICAL,58.0,TEMPERATURE,Salle 2,Surchauffe majeure: 58.0°C,Maintenance d'urgence des climatiseurs,4
+65,ENVIRONNEMENT,NORMALE,68.0,HUMIDITE,Salle 1,Humidité stable: 68.0%,Calibration des capteurs,4
+66,ENVIRONNEMENT,NORMALE,72.0,HUMIDITE,Salle 2,Humidité dans la plage normale: 72.0%,Calibration des capteurs,3
+67,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 1,Panne secteur,Réinitialisation du disjoncteur principal,4
+68,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 2,Problème de circuit,Réparation des câbles endommagés,5
+69,CLIMATISATION,BAS,-4.0,TEMPERATURE,Salle 1,Temperature basse: -4.0°C,Réglage du système de chauffage,4
+70,CLIMATISATION,BAS,-6.0,TEMPERATURE,Salle 2,Temperature basse détectée: -6.0°C,Réglage du système de chauffage,3
+71,ENVIRONNEMENT,BAS,36.0,HUMIDITE,Salle 1,Humidité basse: 36.0%,Ajustement du système d'humidification,4
+72,ENVIRONNEMENT,BAS,33.0,HUMIDITE,Salle 2,Humidité légèrement basse: 33.0%,Ajustement du système d'humidification,3
+73,ENVIRONNEMENT,BAS_CRITIQUE,26.0,HUMIDITE,Salle 1,Humidité critique basse: 26.0%,Installation d'humidificateurs,4
+74,ENVIRONNEMENT,BAS_CRITIQUE,23.0,HUMIDITE,Salle 2,Humidité très basse: 23.0%,Installation d'humidificateurs,5
+75,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 1,Court-circuit détecté,Réparation du circuit électrique,5
+76,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 2,Panne électrique majeure,Réparation du circuit électrique,4
+77,CLIMATISATION,CRITIQUE,37.0,TEMPERATURE,Salle 1,Temperature élevée: 37.0°C,Ajustement du système de refroidissement,4
+78,CLIMATISATION,CRITIQUE,38.5,TEMPERATURE,Salle 2,Temperature anormale: 38.5°C,Ajustement du système de refroidissement,3
+79,ENVIRONNEMENT,CRITIQUE,85.5,HUMIDITE,Salle 1,Humidité élevée détectée: 85.5%,Maintenance des systèmes de ventilation,4
+80,ENVIRONNEMENT,CRITIQUE,88.5,HUMIDITE,Salle 2,Humidité anormale: 88.5%,Maintenance des systèmes de ventilation,3
+81,CLIMATISATION,BAS_CRITIQUE,-18.0,TEMPERATURE,Salle 2,Temperature extrêmement basse: -18.0°C,Réparation du système de chauffage,5
+82,CLIMATISATION,BAS_CRITIQUE,-20.0,TEMPERATURE,Salle 2,Gel sévère détecté: -20.0°C,Réparation du système de chauffage,4
+83,CLIMATISATION,BAS_CRITIQUE,-13.0,TEMPERATURE,Salle 2,Temperature critique basse: -13.0°C,Réparation du système de chauffage,5
+84,CLIMATISATION,NORMALE,19.0,TEMPERATURE,Salle 2,Temperature stable: 19.0°C,Vérification des capteurs,4
+85,CLIMATISATION,NORMALE,24.5,TEMPERATURE,Salle 2,Temperature normale: 24.5°C,Vérification des capteurs,3
+86,CLIMATISATION,CRITIQUE,35.5,TEMPERATURE,Salle 2,Temperature élevée: 35.5°C,Inspection des ventilateurs,4
+87,CLIMATISATION,CRITIQUE,36.5,TEMPERATURE,Salle 1,Temperature anormale: 36.5°C,Inspection des ventilateurs,3
+88,CLIMATISATION,HIGH_CRITICAL,47.0,TEMPERATURE,Salle 1,Surchauffe critique: 47.0°C,Installation de refroidisseurs supplémentaires,5
+89,CLIMATISATION,HIGH_CRITICAL,49.5,TEMPERATURE,Salle 1,Surchauffe majeure: 49.5°C,Installation de refroidisseurs supplémentaires,4
+90,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 1,Panne électrique,Remplacement du tableau électrique,5
+91,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 1,Problème de distribution,Remplacement du tableau électrique,4
+92,ENVIRONNEMENT,BAS_CRITIQUE,18.0,HUMIDITE,Salle 1,Humidité extrêmement basse: 18.0%,Maintenance du système d'humidification,5
+93,ENVIRONNEMENT,BAS_CRITIQUE,22.0,HUMIDITE,Salle 2,Humidité très basse: 22.0%,Maintenance du système d'humidification,4
+94,ENVIRONNEMENT,HIGH_CRITICAL,94.0,HUMIDITE,Salle 2,Humidité excessive: 94.0%,Remplacement des absorbeurs d'humidité,5
+95,ENVIRONNEMENT,HIGH_CRITICAL,95.0,HUMIDITE,Salle 1,Humidité critique: 95.0%,Remplacement des absorbeurs d'humidité,4
+96,ENVIRONNEMENT,NORMALE,62.0,HUMIDITE,Salle 1,Humidité stable: 62.0%,Vérification de l'étanchéité,4
+97,ENVIRONNEMENT,NORMALE,58.0,HUMIDITE,Salle 1,Humidité normale: 58.0%,Vérification de l'étanchéité,3
+98,CLIMATISATION,CRITIQUE,37.2,TEMPERATURE,Salle 2,Temperature élevée: 37.2°C,Maintenance des climatiseurs,5
+99,CLIMATISATION,CRITIQUE,38.8,TEMPERATURE,Salle 2,Temperature anormale: 38.8°C,Maintenance des climatiseurs,4
+100,ENVIRONNEMENT,HIGH_CRITICAL,92.5,HUMIDITE,Salle 1,Humidité extrême: 92.5%,Installation de déshumidificateurs supplémentaires,5
+101,ENVIRONNEMENT,HIGH_CRITICAL,93.8,HUMIDITE,Salle 1,Humidité critique: 93.8%,Installation de déshumidificateurs supplémentaires,4
+102,ENVIRONNEMENT,BAS,37.5,HUMIDITE,Salle 1,Humidité légèrement basse: 37.5%,Ajustement des humidificateurs,4
+103,ENVIRONNEMENT,BAS,39.0,HUMIDITE,Salle 1,Humidité basse: 39.0%,Ajustement des humidificateurs,3
+104,CLIMATISATION,HIGH_CRITICAL,53.0,TEMPERATURE,Salle 2,Surchauffe extrême: 53.0°C,Installation de systèmes de refroidissement,5
+105,CLIMATISATION,HIGH_CRITICAL,57.0,TEMPERATURE,Salle 2,Surchauffe critique: 57.0°C,Installation de systèmes de refroidissement,4
+106,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 2,Court-circuit majeur,Réparation des câbles endommagés,5
+107,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 2,Problème de câblage,Réparation des câbles endommagés,4
+108,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 2,Panne générale,Réinitialisation du disjoncteur principal,5
+109,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 2,Problème électrique,Réinitialisation du disjoncteur principal,4
+110,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 1,Problème de terre,Réparation du circuit de terre,5
+111,CLIMATISATION,BAS_CRITIQUE,-25.0,TEMPERATURE,Salle 2,Temperature extrême: -25.0°C,Réparation du système de chauffage,5
+112,CLIMATISATION,BAS_CRITIQUE,-30.0,TEMPERATURE,Salle 2,Gel sévère: -30.0°C,Réparation du système de chauffage,5
+113,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 2,Disjoncteur déclenché,Réinitialisation du disjoncteur principal,5
+114,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 2,Problème de protection,Réinitialisation du disjoncteur principal,4
+115,ENVIRONNEMENT,HIGH_CRITICAL,96.5,HUMIDITE,Salle 2,Humidité extrême: 96.5%,Remplacement des absorbeurs d'humidité,5
+116,ENVIRONNEMENT,HIGH_CRITICAL,97.5,HUMIDITE,Salle 1,Humidité critique: 97.5%,Remplacement des absorbeurs d'humidité,5
+117,CLIMATISATION,BAS_CRITIQUE,-22.0,TEMPERATURE,Salle 1,Temperature critique: -22.0°C,Maintenance du système de chauffage,5
+118,CLIMATISATION,BAS_CRITIQUE,-18.0,TEMPERATURE,Salle 1,Gel détecté: -18.0°C,Maintenance du système de chauffage,5
+119,CLIMATISATION,NORMALE,19.5,TEMPERATURE,Salle 2,Temperature stable: 19.5°C,Vérification des capteurs,4
+120,CLIMATISATION,NORMALE,20.5,TEMPERATURE,Salle 2,Temperature normale: 20.5°C,Vérification des capteurs,5
+121,CLIMATISATION,CRITIQUE,36.8,TEMPERATURE,Salle 2,Temperature élevée: 36.8°C,Inspection des ventilateurs,5
+122,CLIMATISATION,CRITIQUE,37.8,TEMPERATURE,Salle 2,Temperature anormale: 37.8°C,Inspection des ventilateurs,5
+123,CLIMATISATION,HIGH_CRITICAL,65.0,TEMPERATURE,Salle 2,Surchauffe critique: 65.0°C,Installation de refroidisseurs supplémentaires,5
+124,CLIMATISATION,HIGH_CRITICAL,70.0,TEMPERATURE,Salle 2,Surchauffe extrême: 70.0°C,Installation de refroidisseurs supplémentaires,5
+125,ENVIRONNEMENT,BAS_CRITIQUE,15.0,HUMIDITE,Salle 1,Humidité très basse: 15.0%,Maintenance du système d'humidification,5
+126,ENVIRONNEMENT,BAS_CRITIQUE,18.0,HUMIDITE,Salle 1,Humidité critique: 18.0%,Maintenance du système d'humidification,5
+127,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 1,Panne tableau,Remplacement du tableau électrique,5
+128,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 1,Problème électrique,Remplacement du tableau électrique,5
+129,ENVIRONNEMENT,NORMALE,55.0,HUMIDITE,Salle 1,Humidité stable: 55.0%,Vérification de l'étanchéité,5
+130,ENVIRONNEMENT,NORMALE,65.0,HUMIDITE,Salle 1,Humidité normale: 65.0%,Vérification de l'étanchéité,5
+131,ENVIRONNEMENT,BAS,38.5,HUMIDITE,Salle 1,Humidité légèrement basse: 38.5%,Ajustement des humidificateurs,5
+132,ENVIRONNEMENT,BAS,39.5,HUMIDITE,Salle 1,Humidité basse: 39.5%,Ajustement des humidificateurs,5
+133,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 1,Problème de terre,Réparation du circuit de terre,5
+134,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 1,Défaut terre,Réparation du circuit de terre,5
+135,CLIMATISATION,CRITIQUE,39.2,TEMPERATURE,Salle 1,Temperature critique: 39.2°C,Maintenance des climatiseurs,5
+136,CLIMATISATION,CRITIQUE,39.8,TEMPERATURE,Salle 1,Temperature élevée: 39.8°C,Maintenance des climatiseurs,5
+137,ENVIRONNEMENT,HIGH_CRITICAL,94.5,HUMIDITE,Salle 2,Humidité extrême: 94.5%,Installation de déshumidificateurs supplémentaires,5
+138,ENVIRONNEMENT,HIGH_CRITICAL,95.5,HUMIDITE,Salle 2,Humidité critique: 95.5%,Installation de déshumidificateurs supplémentaires,5
+139,CLIMATISATION,HIGH_CRITICAL,68.0,TEMPERATURE,Salle 2,Surchauffe extrême: 68.0°C,Installation de systèmes de refroidissement,5
+140,CLIMATISATION,HIGH_CRITICAL,72.0,TEMPERATURE,Salle 2,Surchauffe critique: 72.0°C,Installation de systèmes de refroidissement,5
+141,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 2,Câbles endommagés,Réparation des câbles endommagés,5
+142,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 1,Problème câblage,Réparation des câbles endommagés,5
+143,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 1,Panne transformateur,Réparation du transformateur,5
+144,ELECTRICITE,HIGH_CRITICAL,0.0,ELECTRICITE,Salle 1,Défaillance transformateur,Réparation du transformateur,5

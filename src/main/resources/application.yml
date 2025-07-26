@@ -1,0 +1,95 @@
+spring:
+  application:
+    name: cckback
+  datasource:
+    url: jdbc:mysql://localhost:3306/cckprojet?createDatabaseIfNotExist=true&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC
+    username: root
+    password:
+  jackson:
+    date-format: yyyy-MM-dd'T'HH:mm:ss
+    serialization:
+      write-dates-as-timestamps: false
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: mchairiayassine@gmail.com
+    password: ghcg yplv xomg tbfy
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+server:
+  port: 8087
+mqtt:
+  broker:
+    url: tcp://localhost:1883
+  client:
+    id: cckback-sensor-client
+
+flask:
+  api:
+    url: http://localhost:5000
+
+jwt:
+  access-token:
+    expiration: 900000
+  refresh-token:
+    expiration: 604800000
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+        security: DEBUG
+        SQL: DEBUG
+        springframework: TRACE
+        org.hibernate.SQL: DEBUG
+        org.hibernate.orm.jdbc.bind: TRACE
+
+surveillance:
+  intervalle-verification: 5000 # ms
+  delai-entre-alertes: 5 # minutes
+  simulation:
+    temperature:
+      min: -10
+      max: 50
+      variation-max: 2.0 # °C
+    humidite:
+      min: 20
+      max: 100
+      variation-max: 5.0 # %
+    electricite:
+      panne-probabilite: 0.01 # 1%
+
+capteurs:
+  seuils:
+    temperature:
+      niveaux:
+        bas-critique: {min: -55, max: 10}
+        bas: {min: 10, max: 17}
+        normale: {min: 17, max: 28}
+        critique: {min: 28, max: 40}
+        high-critical: {min: 40, max: 75}
+    humidite:
+      niveaux:
+        bas-critique: {min: 0, max: 30}
+        bas: {min: 30, max: 40}
+        normale: {min: 40, max: 80}
+        critique: {min: 80, max: 90}
+        high-critical: {min: 90, max: 100}
+    electricite:
+      niveaux:
+        normale: { min: 1, max: 1 }
+        bas-critique: { min: 0, max: 0 }
