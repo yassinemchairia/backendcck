@@ -31,7 +31,7 @@ public class EmailService {
 
     public void sendPasswordResetEmail(String to, String token) throws MessagingException {
         String subject = "Réinitialisation de votre mot de passe";
-        String resetLink = "http://localhost:4200/auth/password-reset?token=" + token + "&email=" + to;
+        String resetLink = "http://192.168.107.129:4200/auth/password-reset?token=" + token + "&email=" + to;
         String body = "<p>Bonjour,</p>"
                 + "<p>Vous avez demandé à réinitialiser votre mot de passe.</p>"
                 + "<p>Cliquez sur le lien ci-dessous pour changer votre mot de passe :</p>"
