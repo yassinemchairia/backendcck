@@ -64,10 +64,11 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/**","/api/password/**", "/api/profile/**").permitAll() // Allow all /auth endpoints
-                        .requestMatchers("/ws/notifications/**", "/ws/capteurs/**").permitAll() // Allow WebSocket endpoints
-                        .requestMatchers("/api/notifications/**","/prediction/**","/interventions/ajouter").permitAll() // Allow notification endpoints
-                        .anyRequest().authenticated() // Other endpoints require authentication
+                        .requestMatchers("/auth/**", "/api/password/**", "/api/profile/**").permitAll()
+                        .requestMatchers("/ws/notifications/**", "/ws/capteurs/**", "/ws/chat/**").permitAll()
+                        .requestMatchers("/api/notifications/**", "/prediction/**", "/interventions/ajouter").permitAll()
+                        .requestMatchers("/api/files/upload/**", "/api/files/download/**").authenticated() // Explicitly require authentication for file endpoints
+                        .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -81,8 +82,8 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(List.of(
-                "http://192.168.107.129:4200",  // Angular
-                "http://localhost:5000"   // Flask
+                "http://localhost:4200",  // Angular frontend
+                "http://localhost:5000"   // Flask backend
         ));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
