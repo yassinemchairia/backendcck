@@ -13,18 +13,23 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
-        config.enableSimpleBroker("/topic"); // Active un broker simple pour les topics
-        config.setApplicationDestinationPrefixes("/app"); // Préfixe pour les messages envoyés par le client
+        config.enableSimpleBroker("/topic", "/queue"); // Ajout de /queue pour les messages privés
+        config.setApplicationDestinationPrefixes("/app");
+        config.setUserDestinationPrefix("/user"); // Préfixe pour les messages destinés à un utilisateur spécifique
     }
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/ws/notifications") // Dedicated endpoint for notifications
-                .setAllowedOriginPatterns("*") // Allow all origins (adjust for production)
+        registry.addEndpoint("/ws/notifications")
+                .setAllowedOriginPatterns("*")
                 .setHandshakeHandler(new DefaultHandshakeHandler())
                 .withSockJS();
-        registry.addEndpoint("/ws/capteurs") // Keep existing endpoint for sensors
+        registry.addEndpoint("/ws/capteurs")
                 .setAllowedOriginPatterns("*")
+                .withSockJS();
+        registry.addEndpoint("/ws/chat")
+                .setAllowedOriginPatterns("*")
+                .setHandshakeHandler(new DefaultHandshakeHandler())
                 .withSockJS();
     }
 }
