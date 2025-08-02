@@ -8,3 +8,7 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: create-drop
+
+mqtt:
+  broker:
+    url: tcp://mock-broker:1883  # URL fictive pour éviter la connexion réelle
