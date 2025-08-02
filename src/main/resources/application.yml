@@ -2,7 +2,7 @@ spring:
   application:
     name: cckback
   datasource:
-    url: jdbc:mysql://db_mysql1:3306/cckprojet?createDatabaseIfNotExist=true&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/cckprojet?createDatabaseIfNotExist=true&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC
     username: root
     password:
   jackson:
@@ -28,12 +28,17 @@ spring:
           auth: true
           starttls:
             enable: true
+  servlet:
+    multipart:
+      max-file-size: 10MB # Maximum file size
+      max-request-size: 10MB # Maximum request size
+      enabled: true # Enable multipart uploads
 
 server:
   port: 8087
 mqtt:
   broker:
-    url: tcp://mosquitto:1883
+    url: tcp://localhost:1883
   client:
     id: cckback-sensor-client
 
