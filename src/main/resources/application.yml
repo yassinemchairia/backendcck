@@ -38,7 +38,7 @@ server:
   port: 8087
 mqtt:
   broker:
-    url: tcp://localhost:1883
+    url: tcp://mosquitto:1883
   client:
     id: cckback-sensor-client
 
