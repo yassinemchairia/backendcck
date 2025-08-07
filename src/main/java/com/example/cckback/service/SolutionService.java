@@ -9,8 +9,8 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class SolutionService {
-    @Value("${flask.api.url}")
-    private String flaskApiUrl;
+    @Value("${flask.api.solution.url}")
+    private String flaskSolutionApiUrl;
 
     private final RestTemplate restTemplate;
 
@@ -21,7 +21,7 @@ public class SolutionService {
     public String predictSolution(SolutionPredictionRequest request) {
         try {
             ResponseEntity<SolutionPredictionResponse> response = restTemplate.postForEntity(
-                    flaskApiUrl + "/predict_solution", request, SolutionPredictionResponse.class
+                    flaskSolutionApiUrl + "/predict_solution", request, SolutionPredictionResponse.class
             );
             return response.getBody().getSolution();
         } catch (Exception e) {
