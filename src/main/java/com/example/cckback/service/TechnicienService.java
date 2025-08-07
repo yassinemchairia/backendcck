@@ -35,7 +35,7 @@ public class TechnicienService {
     private CalendrierDisponibiliteRepository disponibiliteRepository;
     @Autowired
     private RapportInterventionRepository rapportRepository;
-    @Value("${flask.api.url}")
+    @Value("${flask.api.technician.url}")
     private String flaskApiUrl;
 
     @Autowired
