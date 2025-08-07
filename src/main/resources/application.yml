@@ -44,7 +44,10 @@ mqtt:
 
 flask:
   api:
-    url: http://localhost:5000
+    technician:
+      url: http://localhost:5001
+    solution:
+      url: http://localhost:5000
 
 jwt:
   access-token:
