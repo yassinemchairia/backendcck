@@ -1,0 +1,105 @@
+// src/main/java/com/example/cckback/controller/FileController.java
+package com.example.cckback.controller;
+
+import com.example.cckback.dto.ChatMessageDTO;
+import com.example.cckback.service.ChatService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.UUID;
+
+@RestController
+@RequestMapping("/api/files")
+public class FileController {
+
+    private final ChatService chatService;
+    private final String uploadDir = "uploads/"; // Directory to store files
+    private final String baseDownloadUrl = "http://192.168.107.129:8087/api/files/download/"; // Base URL for downloads
+
+    @Autowired
+    public FileController(ChatService chatService) {
+        this.chatService = chatService;
+        // Create upload directory if it doesn't exist
+        File directory = new File(uploadDir);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+    }
+
+    @PostMapping("/upload")
+    public ResponseEntity<ChatMessageDTO> uploadFile(
+            @RequestParam("file") MultipartFile file,
+            @RequestParam("senderId") Long senderId,
+            @RequestParam("receiverId") Long receiverId) {
+        try {
+            // Validate file
+            if (file.isEmpty()) {
+                return ResponseEntity.badRequest().body(null);
+            }
+
+            // Generate unique file name
+            String fileName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
+            Path filePath = Paths.get(uploadDir, fileName); // Use Paths.get for cleaner path construction
+
+            // Write file to disk
+            Files.write(filePath, file.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+
+            // Create ChatMessageDTO for the file
+            ChatMessageDTO messageDTO = new ChatMessageDTO();
+            messageDTO.setSenderId(senderId);
+            messageDTO.setReceiverId(receiverId);
+            messageDTO.setContent(""); // No text content for file messages
+            messageDTO.setFilePath(fileName); // Store only the file name
+            messageDTO.setFileType(file.getContentType());
+            messageDTO.setFileName(file.getOriginalFilename());
+            messageDTO.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+
+            // Send message via ChatService
+            chatService.sendMessage(messageDTO);
+
+            return ResponseEntity.ok(messageDTO);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body(null);
+        }
+    }
+
+    @GetMapping("/download/{fileName}")
+    public ResponseEntity<Resource> downloadFile(@PathVariable String fileName) {
+        try {
+            Path filePath = Paths.get(uploadDir, fileName); // Use Paths.get for cleaner path construction
+            Resource resource = new FileSystemResource(filePath.toFile());
+
+            if (!resource.exists()) {
+                return ResponseEntity.notFound().build();
+            }
+
+            String contentType = Files.probeContentType(filePath);
+            if (contentType == null) {
+                contentType = "application/octet-stream";
+            }
+
+            return ResponseEntity.ok()
+                    .contentType(MediaType.parseMediaType(contentType))
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileName + "\"")
+                    .body(resource);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body(null);
+        }
+    }
+}
