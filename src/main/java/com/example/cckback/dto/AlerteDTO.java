@@ -17,19 +17,24 @@ public class AlerteDTO {
     private String ipAdresse;
     private String emplacement;
     private String typeCapteur;
-
+    private Double valeurDeclenchement; // Ajout pour valeurDeclenchement
+    private String uniteMesure; // Ajout pour uniteMesure
+    private String description; // Ajout pour description
     public AlerteDTO(Alerte alerte) {
         this.idAlerte = alerte.getIdAlerte();
         this.typePanne = alerte.getTypePanne().toString();
         this.niveauGravite = alerte.getNiveauGravite().toString();
         this.dateAlerte = alerte.getDateAlerte();
         this.estResolu = alerte.getEstResolu();
-
+        this.valeurDeclenchement = alerte.getValeurDeclenchement();
+        this.description = alerte.getDescription();
         if (alerte.getCapteur() != null) {
             this.idCapteur = alerte.getCapteur().getIdCapt();
             this.ipAdresse = alerte.getCapteur().getIpAdresse();
             this.emplacement = alerte.getCapteur().getEmplacement();
             this.typeCapteur = alerte.getCapteur().getType().toString();
+            this.uniteMesure = alerte.getCapteur().getUniteMesure();
+
         }
     }
 
@@ -67,4 +72,22 @@ public class AlerteDTO {
         return emplacement;
     }
     // Getters (ou utilise Lombok @Getter)
+public String getDescription() {
+        return description;
 }
+public Double getValeurDeclenchement() {
+        return valeurDeclenchement;
+}
+public String getUniteMesure() {
+        return uniteMesure;
+}
+
+
+
+
+
+}
+
+
+
+
