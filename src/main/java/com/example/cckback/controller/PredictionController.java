@@ -13,8 +13,8 @@ import java.util.Map;
 @RequestMapping("/api/predict")
 public class PredictionController {
 
-    @Value("${flask.api.url}")
-    private String flaskApiUrl;
+    @Value("${flask.api.technician.url}")
+    private String flaskTechnicianApiUrl;
 
     private final RestTemplate restTemplate;
 
@@ -26,9 +26,9 @@ public class PredictionController {
     public ResponseEntity<?> predictTechnician(@RequestBody InterventionPredictionRequest request) {
         try {
             // Ajoutez un log pour vérifier l'URL
-            System.out.println("URL Flask: " + flaskApiUrl + "/predict");
+            System.out.println("URL Flask Technician: " + flaskTechnicianApiUrl+ "/predict");
 
-            String url = flaskApiUrl + "/predict";
+            String url = flaskTechnicianApiUrl + "/predict";
             if (!url.startsWith("http")) {
                 url = "http://" + url; // Garantit que l'URL est absolue
             }
