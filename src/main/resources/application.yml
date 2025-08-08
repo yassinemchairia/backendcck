@@ -47,7 +47,7 @@ flask:
     technician:
       url: http://prediction_technicians:5001
     solution:
-      url: http://localhost:5000
+      url: http://prediction_solution:5000
 
 jwt:
   access-token:
