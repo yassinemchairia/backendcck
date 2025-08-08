@@ -8,11 +8,14 @@ import com.example.cckback.dto.InterventionssDTO;
 import com.example.cckback.service.AlertePredictionService;
 import com.example.cckback.service.AlerteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -28,13 +31,39 @@ public class AlertePredictionController {
 
     @Autowired
     private AlerteService alerteService;
+    @Value("${flask.api.solution.url}")
+    private String flaskSolutionApiUrl;
 
+    private  RestTemplate restTemplate;
     @PostMapping("/predict")
     public ResponseEntity<Map<String, Object>> predictSolution(@RequestBody AlertessDTO alerteDTO) {
         Map<String, Object> prediction = alertePredictionService.predictSolution(alerteDTO);
         return ResponseEntity.ok(prediction);
     }
+    @PostMapping("/predict-solution")
+    public ResponseEntity<Map> predictSolution(@RequestBody Alerte alerte) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
 
+        Map<String, Object> payload = Map.of(
+                "typePanne", alerte.getTypePanne(),
+                "niveauGravite", alerte.getNiveauGravite(),
+                "valeurDeclenchement", alerte.getValeurDeclenchement() != null ? alerte.getValeurDeclenchement() : 0,
+                "typeCapteur", alerte.getCapteur().getType(),
+                "emplacement", alerte.getCapteur().getEmplacement(),
+                "description", alerte.getDescription() != null ? alerte.getDescription() : ""
+        );
+
+        HttpEntity<Map<String, Object>> request = new HttpEntity<>(payload, headers);
+
+        ResponseEntity<Map> response = restTemplate.postForEntity(
+                flaskSolutionApiUrl + "/predict_solution",
+                request,
+                Map.class
+        );
+
+        return ResponseEntity.ok(response.getBody());
+    }
     @PostMapping("/predict-and-create-intervention/{alerteId}")
     public ResponseEntity<Intervention> predictAndCreateIntervention(@PathVariable Long alerteId) {
         Alerte alerte = alerteService.findById(alerteId);
