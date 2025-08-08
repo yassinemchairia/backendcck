@@ -4,7 +4,6 @@ import com.example.cckback.Entity.Alerte;
 import com.example.cckback.Entity.Intervention;
 import com.example.cckback.dto.AlertessDTO;
 import com.example.cckback.dto.Intervention1DTO;
-import com.example.cckback.dto.InterventionssDTO;
 import com.example.cckback.service.AlertePredictionService;
 import com.example.cckback.service.AlerteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +30,17 @@ public class AlertePredictionController {
 
     @Autowired
     private AlerteService alerteService;
+
     @Value("${flask.api.solution.url}")
     private String flaskSolutionApiUrl;
 
-    private  RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
+
+    @Autowired
+    public AlertePredictionController(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
     @PostMapping("/predict")
     public ResponseEntity<Map<String, Object>> predictSolution(@RequestBody AlertessDTO alerteDTO) {
         Map<String, Object> prediction = alertePredictionService.predictSolution(alerteDTO);
