@@ -9,10 +9,9 @@ import com.example.cckback.Entity.Statut;
 import com.example.cckback.Repository.AlerteRepository;
 import com.example.cckback.dto.AlertessDTO;
 import com.example.cckback.dto.Intervention1DTO;
-import com.example.cckback.dto.InterventionDTO;
-import com.example.cckback.dto.InterventionssDTO;
 import com.opencsv.CSVWriter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -32,12 +31,16 @@ import java.util.logging.Logger;
 public class AlertePredictionService {
 
     private static final Logger LOGGER = Logger.getLogger(AlertePredictionService.class.getName());
-    private static final String FLASK_API_URL = "http://localhost:5000/predict_solution";
+
+    @Value("${flask.api.solution.url}")
+    private String flaskSolutionApiUrl;
 
     @Autowired
     private RestTemplate restTemplate;
-@Autowired
- private AlerteRepository alerteRepository;
+
+    @Autowired
+    private AlerteRepository alerteRepository;
+
     @Autowired
     private InterventionService interventionService;
 
@@ -63,7 +66,7 @@ public class AlertePredictionService {
             HttpEntity<Map<String, Object>> request = new HttpEntity<>(payload, headers);
 
             // Send POST request to Flask API
-            ResponseEntity<Map> response = restTemplate.postForEntity(FLASK_API_URL, request, Map.class);
+            ResponseEntity<Map> response = restTemplate.postForEntity(flaskSolutionApiUrl + "/predict_solution", request, Map.class);
 
             if (response.getStatusCode().is2xxSuccessful()) {
                 LOGGER.info("Prediction received successfully from Flask API");
@@ -131,12 +134,15 @@ public class AlertePredictionService {
                 return PrioriteIntervention.MOYENNE;
         }
     }
+
     public List<Alerte> getResolvedAIAlerts() {
         return alerteRepository.findByEstResoluTrueAndInterventionsResolvedByAITrue();
     }
+
     public List<Alerte> getResolvedAIAlertsByDateRange(LocalDateTime startDate, LocalDateTime endDate) {
         return alerteRepository.findByEstResoluTrueAndInterventionsResolvedByAITrueAndDateAlerteBetween(startDate, endDate);
     }
+
     public Double getAverageSatisfactionForAIAlerts() {
         List<Alerte> alerts = alerteRepository.findByEstResoluTrueAndInterventionsResolvedByAITrue();
         return alerts.stream()
@@ -146,13 +152,14 @@ public class AlertePredictionService {
                 .average()
                 .orElse(0.0);
     }
+
     public Optional<Intervention1DTO> getInterventionDetailsForAlert(Long alerteId) {
         Alerte alerte = alerteRepository.findById(alerteId)
                 .orElseThrow(() -> new RuntimeException("Alert not found"));
         Optional<Intervention> intervention = alerte.getInterventions().stream()
                 .filter(i -> i.isResolvedByAI())
                 .findFirst();
-        return intervention.map(i -> new Intervention1DTO( // Changed from InterventionDTO to Intervention1DTO
+        return intervention.map(i -> new Intervention1DTO(
                 i.getIdInterv(),
                 i.getAlerte().getIdAlerte(),
                 i.getDateDebut(),
@@ -164,6 +171,7 @@ public class AlertePredictionService {
                 i.getRapport() != null ? i.getRapport().getSatisfaction() : null
         ));
     }
+
     public String exportResolvedAIAlertsToCSV() {
         List<Alerte> alerts = alerteRepository.findByEstResoluTrueAndInterventionsResolvedByAITrue();
         StringWriter writer = new StringWriter();
