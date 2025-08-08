@@ -65,7 +65,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**", "/api/password/**", "/api/profile/**").permitAll()
-                        .requestMatchers("/ws/notifications/**", "/ws/capteurs/**", "/ws/chat/**").permitAll()
+                        .requestMatchers("/ws/notifications/**", "/ws/capteurs/**","/alertes/**", "/ws/chat/**").permitAll()
                         .requestMatchers("/api/notifications/**", "/prediction/**", "/interventions/ajouter").permitAll()
                         .requestMatchers("/api/files/upload/**", "/api/files/download/**").authenticated() // Explicitly require authentication for file endpoints
                         .anyRequest().authenticated()
