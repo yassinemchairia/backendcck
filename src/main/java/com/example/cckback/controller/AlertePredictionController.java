@@ -46,30 +46,7 @@ public class AlertePredictionController {
         Map<String, Object> prediction = alertePredictionService.predictSolution(alerteDTO);
         return ResponseEntity.ok(prediction);
     }
-    @PostMapping("/predict-solution")
-    public ResponseEntity<Map> predictSolution(@RequestBody Alerte alerte) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-
-        Map<String, Object> payload = Map.of(
-                "typePanne", alerte.getTypePanne(),
-                "niveauGravite", alerte.getNiveauGravite(),
-                "valeurDeclenchement", alerte.getValeurDeclenchement() != null ? alerte.getValeurDeclenchement() : 0,
-                "typeCapteur", alerte.getCapteur().getType(),
-                "emplacement", alerte.getCapteur().getEmplacement(),
-                "description", alerte.getDescription() != null ? alerte.getDescription() : ""
-        );
-
-        HttpEntity<Map<String, Object>> request = new HttpEntity<>(payload, headers);
-
-        ResponseEntity<Map> response = restTemplate.postForEntity(
-                flaskSolutionApiUrl + "/predict_solution",
-                request,
-                Map.class
-        );
-
-        return ResponseEntity.ok(response.getBody());
-    }
+   
     @PostMapping("/predict-and-create-intervention/{alerteId}")
     public ResponseEntity<Intervention> predictAndCreateIntervention(@PathVariable Long alerteId) {
         Alerte alerte = alerteService.findById(alerteId);
