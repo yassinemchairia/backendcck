@@ -9,9 +9,10 @@ import com.example.cckback.Entity.Statut;
 import com.example.cckback.Repository.AlerteRepository;
 import com.example.cckback.dto.AlertessDTO;
 import com.example.cckback.dto.Intervention1DTO;
+import com.example.cckback.dto.InterventionDTO;
+import com.example.cckback.dto.InterventionssDTO;
 import com.opencsv.CSVWriter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -31,9 +32,7 @@ import java.util.logging.Logger;
 public class AlertePredictionService {
 
     private static final Logger LOGGER = Logger.getLogger(AlertePredictionService.class.getName());
-
-    @Value("${flask.api.solution.url}")
-    private String flaskSolutionApiUrl;
+    private static final String FLASK_API_URL = "http://prediction_solution:5000/predict_solution";
 
     @Autowired
     private RestTemplate restTemplate;
@@ -66,7 +65,7 @@ public class AlertePredictionService {
             HttpEntity<Map<String, Object>> request = new HttpEntity<>(payload, headers);
 
             // Send POST request to Flask API
-            ResponseEntity<Map> response = restTemplate.postForEntity(flaskSolutionApiUrl + "/predict_solution", request, Map.class);
+            ResponseEntity<Map> response = restTemplate.postForEntity(FLASK_API_URL, request, Map.class);
 
             if (response.getStatusCode().is2xxSuccessful()) {
                 LOGGER.info("Prediction received successfully from Flask API");
