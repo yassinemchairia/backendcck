@@ -83,7 +83,8 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(List.of(
                 "http://192.168.107.129:4200",  // Angular frontend
-                "http://prediction_solution:5000"   // Flask backend
+                "http://angular_app:80",
+            "http://prediction_solution:5000"   // Flask backend
         ));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
